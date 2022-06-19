@@ -1,0 +1,36 @@
+<form class="col-12 col-md-8 col-lg-6" #productForm="ngForm"
+    (submit)="onSave(productForm)">
+
+    <input type="number" class="form-control mb-3"
+    name="id" placeholder="ID"
+    required [ngModel]="product?.id">
+
+    <input type="text" class="form-control mb-3"
+        name="name" placeholder="Name"
+        required [ngModel]="product?.name">
+
+    <input type="text" class="form-control mb-3"
+        name="description" placeholder="Description"
+        required [ngModel]="product?.description">
+
+    <div class="input-group mb-3">
+        <span class="input-group-text">PLN</span>
+        <input class="form-control" type="number"
+            name="price" placeholder="Price"
+            required [ngModel]="product?.price">
+        <span class="input-group-text">.00</span>
+    </div>
+
+    <select class="form-select mb-3" name="quantity"
+        required [ngModel]="product?.quantity">
+        <option selected disabled>Select quantity...</option>
+        <option value="0">0</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+    </select>
+
+    <button type="submit" class="btn btn-danger"
+        [disabled]="!productForm.valid">Add product</button>
+</form>
